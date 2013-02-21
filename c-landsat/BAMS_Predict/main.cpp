@@ -48,7 +48,7 @@ int main(int argc, char* argv[]) {
 	input = OpenInput(strdup(pba.INPUT_HDF_FILE.c_str()));
 
 	if (input == (Input_t *) NULL) {
-		sprintf(errstr, "opening the input file: %s", pba.INPUT_HDF_FILE);
+		sprintf(errstr, "opening the input file: %s", pba.INPUT_HDF_FILE.c_str() );
 		ERROR(errstr, "main");
 	}
 
@@ -92,12 +92,12 @@ int main(int argc, char* argv[]) {
 	input_header_name = strdup(pba.INPUT_HEADER_FILE.c_str());
 	output_header_name = strdup(pba.OUTPUT_HEADER_NAME.c_str());
 	if (!CreateOutput(output_file_name, input_header_name, output_header_name)) {
-		sprintf(errstr, "creating output file - %s", pba.OUTPUT_FILE_NAME);
+		sprintf(errstr, "creating output file - %s", pba.OUTPUT_FILE_NAME.c_str() );
 		ERROR(errstr, "main");
 	}
 	output = OpenOutput(output_file_name, 1, 0, sds_names, qa_sds_names, &input->size);
 	if (output == NULL) {
-		sprintf(errstr, "opening output file - %s", pba.OUTPUT_FILE_NAME);
+		sprintf(errstr, "opening output file - %s", pba.OUTPUT_FILE_NAME.c_str() );
 		ERROR(errstr, "main");
 	}
 	    //CvGBTrees test;
